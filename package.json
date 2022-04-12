@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^6.1.2",
+    "@types/faker": "^6.6.9",
+    "@types/leaflet": "^1.7.9",
+    "leaflet": "^1.7.1"
+  }
+}
