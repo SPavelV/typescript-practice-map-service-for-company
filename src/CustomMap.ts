@@ -1,6 +1,11 @@
 import L from 'leaflet';
-import { User } from './User';
-import { Company } from './Company';
+
+export interface Mappable {
+  location: {
+    lat: number;
+    lng: number;
+  };
+}
 
 export class CustomMap {
   private map: L.Map;
@@ -21,19 +26,10 @@ export class CustomMap {
     ).addTo(this.map);
   }
 
-  addUserMarker(user: User): void {
-    L.circle([user.location.lat, user.location.lng], {
+  addMarker(mappable: Mappable): void {
+    L.circle([mappable.location.lat, mappable.location.lng], {
       color: 'red',
       fillColor: '#ff003',
-      fillOpacity: 0.5,
-      radius: 1000,
-    }).addTo(this.map);
-  }
-
-  addCompanyMarker(company: Company): void {
-    L.circle([company.location.lat, company.location.lng], {
-      color: 'orange',
-      fillColor: '#ffa500',
       fillOpacity: 0.5,
       radius: 1000,
     }).addTo(this.map);
