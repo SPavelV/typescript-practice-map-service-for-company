@@ -5,6 +5,8 @@ export interface Mappable {
     lat: number;
     lng: number;
   };
+
+  markerContent(): string;
 }
 
 export class CustomMap {
@@ -27,11 +29,13 @@ export class CustomMap {
   }
 
   addMarker(mappable: Mappable): void {
-    L.circle([mappable.location.lat, mappable.location.lng], {
+    const marker = L.circle([mappable.location.lat, mappable.location.lng], {
       color: 'red',
       fillColor: '#ff003',
       fillOpacity: 0.5,
       radius: 1000,
     }).addTo(this.map);
+
+    marker.bindPopup(mappable.markerContent()).openPopup();
   }
 }
