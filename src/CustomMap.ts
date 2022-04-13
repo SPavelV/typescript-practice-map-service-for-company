@@ -5,8 +5,8 @@ export interface Mappable {
     lat: number;
     lng: number;
   };
-
   markerContent(): string;
+  color: string;
 }
 
 export class CustomMap {
